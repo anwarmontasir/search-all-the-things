@@ -5,7 +5,7 @@ const EVERYTHING_URL = `${BASE_URL}/everything?${API_QUERY}`;
 const SOURCES_URL = `${BASE_URL}/sources?${API_QUERY}`;
 const SORT_QUERY = 'sortBy=publishedAt';
 
-const throwJson = json => { throw json; }
+const throwJson = json => { throw json; };
 const get = url => fetch(url)
   .then(r => r.ok ? r.json() : r.json().then(throwJson));
 
