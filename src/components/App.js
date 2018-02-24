@@ -52,12 +52,34 @@ export default class App extends Component {
       const { articles, error, loading, page, topic, totalResults } = this.state;
       
       return (
-        <div>
+        <div className={styles.app}>
           <header>
             <Search onSearch={this.handleSearch} />
           </header>
           <main>
+            <div className="search-header">
+              {articles ?
+                <div>
+                  <h4>Search for &quot;{topic}&quot; found {totalResults} matches</h4>
+                </div>
+                :
+                <div>Please search above</div>
+              }
+            </div>
 
+            <div>{loading && 'Loading...'}</div>
+            <pre classsName="error">{error && error.message}</pre>
+
+            {articles && (
+              <div>
+                <Paging totalResults={totalResults}
+                  page={page}
+                  perPage={PAGE_SIZE}
+                  onPrev={this.handlePrev}
+                  onNext={this.handleNext} />
+                <Articles articles={articles} />
+              </div>
+            )}
           </main>
           <footer>
             <small>&copy; 2018 this app.</small>
