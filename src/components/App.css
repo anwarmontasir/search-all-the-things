@@ -1,0 +1,14 @@
+:local(.app) {
+
+    header, main {
+      padding: 20px;
+    }
+  
+    .search-header {
+      padding: 10px;
+    }
+  
+    .error {
+      color: red;
+    } 
+}

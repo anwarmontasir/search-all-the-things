@@ -31,7 +31,7 @@ export default class App extends Component {
           error => this.setState({ error }))
         .then(() => {
           this.setState({ loading: false });
-        });;
+        });
     };
 
     handleSearch = (search) => {
